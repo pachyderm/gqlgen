@@ -42,7 +42,7 @@ func (b *builder) buildObject(typ *ast.Definition) (*Object, error) {
 	obj := &Object{
 		Definition:         typ,
 		Root:               b.Schema.Query == typ || b.Schema.Mutation == typ || b.Schema.Subscription == typ,
-		DisableConcurrency: typ == b.Schema.Mutation,
+		DisableConcurrency: true,
 		Stream:             typ == b.Schema.Subscription,
 		Directives:         dirs,
 		ResolverInterface: types.NewNamed(
